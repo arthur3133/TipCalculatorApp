@@ -11,6 +11,9 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Add
+import androidx.compose.material.icons.rounded.Remove
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -23,6 +26,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.udemycourse.tipcalculatorapp.components.InputField
+import com.udemycourse.tipcalculatorapp.components.RoundIconButton
 import com.udemycourse.tipcalculatorapp.ui.theme.TipCalculatorAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -87,7 +91,7 @@ fun BillForm(
     onValueChanged: (String) -> Unit
 ) {
     var totalBillState = remember {
-        mutableStateOf("0")
+        mutableStateOf("")
     }
     val validState = remember(totalBillState.value) {
         totalBillState.value.trim().isNotEmpty()
@@ -100,7 +104,13 @@ fun BillForm(
         shape = RoundedCornerShape(8.dp),
         border = BorderStroke(width = 1.dp, color = Color.LightGray)
     ) {
-        Column() {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(6.dp),
+            horizontalAlignment = Alignment.Start,
+            verticalArrangement = Arrangement.Top
+        ) {
             InputField(
                 valueState = totalBillState,
                 label = "Enter Bill",
@@ -112,6 +122,36 @@ fun BillForm(
                     keyboardController?.hide()
                 }
             )
+            if (validState) {
+                Row(
+                    modifier = Modifier.padding(3.dp),
+                    horizontalArrangement = Arrangement.Start
+                ) {
+                   Text(
+                       text = "Split",
+                       modifier = Modifier.align(alignment = Alignment.CenterVertically)
+                   )
+                    Spacer(modifier = Modifier.width(120.dp))
+                    Row(
+                        modifier = Modifier.padding(horizontal = 3.dp),
+                        horizontalArrangement = Arrangement.End
+                    ) {
+                        RoundIconButton(
+                            onClicked = {
+                                Log.d("Removed", "Removed Clicked")
+                            },
+                            imageVector = Icons.Rounded.Remove
+                        )
+
+                        RoundIconButton(
+                            onClicked = {
+                                Log.d("Add", "Add Clicked")
+                            },
+                            imageVector = Icons.Rounded.Add
+                        )
+                    }
+                }
+            }
         }
     }
 }
