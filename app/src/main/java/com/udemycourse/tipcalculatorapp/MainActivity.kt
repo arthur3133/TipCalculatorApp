@@ -138,14 +138,21 @@ fun BillForm(
                     ) {
                         RoundIconButton(
                             onClicked = {
-                                Log.d("Removed", "Removed Clicked")
+
                             },
                             imageVector = Icons.Rounded.Remove
                         )
 
+                        Text(
+                            text = "1",
+                            modifier = Modifier
+                                .align(alignment = Alignment.CenterVertically)
+                                .padding(start = 9.dp, end = 9.dp)
+                        )
+
                         RoundIconButton(
                             onClicked = {
-                                Log.d("Add", "Add Clicked")
+
                             },
                             imageVector = Icons.Rounded.Add
                         )

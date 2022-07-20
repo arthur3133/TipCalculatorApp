@@ -1,6 +1,7 @@
 package com.udemycourse.tipcalculatorapp.components
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -37,7 +38,7 @@ fun InputField(
         onValueChange = {
             valueState.value = it
         },
-        modifier = modifier.padding(start = 10.dp, end = 10.dp, bottom = 10.dp),
+        modifier = modifier.padding(start = 10.dp, end = 10.dp, bottom = 10.dp).fillMaxWidth(),
         enabled = enabled,
         textStyle = TextStyle(
             fontSize = 18.sp,
