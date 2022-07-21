@@ -38,7 +38,9 @@ fun InputField(
         onValueChange = {
             valueState.value = it
         },
-        modifier = modifier.padding(start = 10.dp, end = 10.dp, bottom = 10.dp).fillMaxWidth(),
+        modifier = modifier
+            .padding(start = 10.dp, end = 10.dp, bottom = 10.dp)
+            .fillMaxWidth(),
         enabled = enabled,
         textStyle = TextStyle(
             fontSize = 18.sp,
@@ -51,7 +53,8 @@ fun InputField(
         leadingIcon = {
             Icon(
                 imageVector = Icons.Rounded.AttachMoney,
-                contentDescription = "Money Icon")
+                contentDescription = "Money Icon"
+            )
         },
         keyboardOptions = KeyboardOptions(
             keyboardType = keyboardType,
@@ -71,15 +74,18 @@ fun RoundIconButton(
     elevation: Dp = 4.dp
 ) {
     Card(
-        modifier = modifier.padding(4.dp).clickable { onClicked() }.then(modifier.size(40.dp)),
+        modifier = modifier
+            .padding(4.dp)
+            .clickable { onClicked() }
+            .then(modifier.size(40.dp)),
         shape = CircleShape,
         backgroundColor = backgroundColor,
         elevation = elevation
     ) {
-       Icon(
-           imageVector = imageVector,
-           contentDescription = "Plus Or Minus Icon",
-           tint = tint
-       )
+        Icon(
+            imageVector = imageVector,
+            contentDescription = "Plus Or Minus Icon",
+            tint = tint
+        )
     }
 }
