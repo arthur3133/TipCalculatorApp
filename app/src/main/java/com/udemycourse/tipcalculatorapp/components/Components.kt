@@ -71,7 +71,7 @@ fun RoundIconButton(
     elevation: Dp = 4.dp
 ) {
     Card(
-        modifier = modifier.padding(4.dp).clickable { onClicked() }.then(Modifier.size(40.dp)),
+        modifier = modifier.padding(4.dp).clickable { onClicked() }.then(modifier.size(40.dp)),
         shape = CircleShape,
         backgroundColor = backgroundColor,
         elevation = elevation
